@@ -7,7 +7,7 @@ import { Grid } from "@chakra-ui/react"
 
 const Products = () => {
     const products=useSelector((state)=>state.product.products);
-    const loading=useSelector((state)=>state.loading)
+    const loading=useSelector((state)=>state.product.loading)
     const dispatch=useDispatch();
     console.log(products)
     
@@ -17,12 +17,12 @@ const Products = () => {
 
  const handleAddtoCart=(id,price,title,image)=>{
     
-   
-   const item={id,quantity:1,price,title,image};
-   localStorage.setItem("cartItems", JSON.stringify(item));
-    // dispatch(addToCart(item));
+  console.log(id)
+  const item={id,price,quantity:1,image}
+   //localStorage.setItem("cartItems", JSON.stringify(item));
+    dispatch(addToCart(item));
 
-    dispatch(fetchProducts());
+    // dispatch(fetchProducts());
 
 }
 
