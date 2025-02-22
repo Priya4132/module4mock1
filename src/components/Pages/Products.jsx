@@ -22,7 +22,7 @@ const Products = () => {
    //localStorage.setItem("cartItems", JSON.stringify(item));
     dispatch(addToCart(item));
 
-    // dispatch(fetchProducts());
+   dispatch(fetchProducts());
 
 }
 
@@ -41,7 +41,7 @@ const Products = () => {
         <Image rounded="md" src={product.image} height={"100px"}/>
     <Text colorPalette={"blue"}>{product.title}</Text>
     <Text>{product.price}</Text>
-    <Button colorPalette={"blue"} onClick={handleAddtoCart(product.id,product.title,product.image,product.price)}  >Add To Cart</Button>
+    <Button colorPalette={"blue"} onClick={()=>dispatch(handleAddtoCart(product.id,product.title,product.image,product.price))}  >Add To Cart</Button>
     </Box>
    })}
    
